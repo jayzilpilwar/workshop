@@ -19,7 +19,7 @@ resource "google_bigquery_routine" "routine" {
     dataset_id      = google_bigquery_dataset.raw.dataset_id
     routine_id      = "${var.routine_id}"
     routine_type    = "PROCEDURE"
-    langauge        = "SQL"
-    defination_body = file("${path.module}/${var.routine_sql}.sql")
+    language        = "SQL"
+    definition_body = file("${path.module}/${var.routine_sql}.sql")
     depends_on      = [ google_bigquery_dataset.raw ]
 }

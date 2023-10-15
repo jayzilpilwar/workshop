@@ -2,12 +2,12 @@ name: 'terraform transaction deployment'
 on: 
     push:
         branches:
-            - test01
+            - main
         paths:
             - 'terraform/main.tf'
             - 'transactions/*'
-            - 'transactions/terraform.tfvars'
             - 'transactions/backend.tf'
+            - 'transactions/terraform.tfvars'
 
 env:
     PROJECT_ID: My First Project
@@ -40,8 +40,8 @@ jobs:
               uses:  google-github-actions/auth@v0
               with:
                 workload_identity_provider:
-                    ''
-                service_account: '' 
+                    'projects/389671115938/locations/global/workloadIdentityPools/my-pool/attribute.repository/jayzilpilwar/workshop'
+                service_account: 'gitactions-service@dulcet-abacus-397714.iam.gserviceaccount.com' 
                 access_token_lifetime: '300s'
             
             - name: Setup Account
@@ -58,4 +58,7 @@ jobs:
             - name: Terraform Apply
               working-directory:  ${{runner.temp}}/terraform/
               run: terraform apply -auto-approve
+<<<<<<< HEAD
               
+=======
+>>>>>>> e5dd824 (code added)
