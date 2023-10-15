@@ -41,7 +41,7 @@ jobs:
               uses:  google-github-actions/auth@v1
               with:
                 token_format: 'access_token'
-                workload_identity_provider: 'projects/389671115938/locations/global/workloadIdentityPools/my-pool/attribute.repository/jayzilpilwar/workshop'
+                workload_identity_provider: 'projects/389671115938/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
                 service_account: 'gitactions-service@dulcet-abacus-397714.iam.gserviceaccount.com' 
                 access_token_lifetime: '30s'
             
