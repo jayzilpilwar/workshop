@@ -14,7 +14,8 @@ resource "google_bigquery_dataset" "raw" {
     }
 }
 
-resource "google_bigquery_routine" "routine" {
+
+resource "google_bigquery_routine" "bigqyery-execution" {
     dataset_id      = google_bigquery_dataset.raw.dataset_id
     routine_id      = "${var.routine_id}"
     routine_type    = "PROCEDURE"
