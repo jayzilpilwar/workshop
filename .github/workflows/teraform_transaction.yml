@@ -10,7 +10,7 @@ on:
             - 'transactions/terraform.tfvars'
 
 env:
-    PROJECT_ID: My First Project
+    PROJECT_ID: dulcet-abacus-397714
 
 jobs:
     setup:
