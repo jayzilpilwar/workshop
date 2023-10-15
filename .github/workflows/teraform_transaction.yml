@@ -58,7 +58,3 @@ jobs:
             - name: Terraform Apply
               working-directory:  ${{runner.temp}}/terraform/
               run: terraform apply -auto-approve
-<<<<<<< HEAD
-              
-=======
->>>>>>> e5dd824 (code added)
