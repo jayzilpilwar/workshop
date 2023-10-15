@@ -1,4 +1,2 @@
-BEGIN
-create or replace table `dulcet-abacus-397714.transactions.workshop` as
-(select * from `dulcet-abacus-397714.transactions.test` as c);
-END
+CREATE OR REPLACE TABLE `dulcet-abacus-397714.transactions.workshop` AS
+SELECT * FROM `dulcet-abacus-397714.transactions.test`;
