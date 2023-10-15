@@ -1,0 +1,62 @@
+name: 'terraform transaction deployment'
+on: 
+    push:
+        branches:
+            - main
+        paths:
+            - 'terraform/main.tf'
+            - 'transactions/*'
+            - 'transactions/terraform.tfvars'
+            - 'transactions/backend.tf'
+
+env:
+    PROJECT_ID: My First Project
+
+jobs:
+    setup:
+        name: 'Setup terraform on GCP'
+        permissions:
+            contents: 'read'
+            id-token: 'write'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Create Terraform
+              run: cd ${{runner.temp}}; mkdir terraform
+              
+            - name: Checkout
+              uses: actions/checkout@v3
+            
+            - name: Copy Terraform files
+              run: |
+                cp terraform/main.tf ${{runner.temp}}/terraform/main.tf
+                cp -R transactions ${{runner.temp}}/terraform/
+                cp transactions/backend.tf ${{runner.temp}}/terraform/backend.tf
+                cp transactions/terraform.tfvars ${{runner.temp}}/terraform/terraform.tfvars
+
+            - name: Check Contents
+              run: cd ${{runner.temp}}/terraform ; ls
+
+            - name: Auth 
+              uses:  google-github-actions/auth@v0
+              with:
+                workload_identity_provider:
+                    ''
+                service_account: '' 
+                access_token_lifetime: '300s'
+            
+            - name: Setup Account
+              uses: hashicorp/setup-terraform@v1
+              
+            - name: Terraform Init
+              working-directory: ${{runner.temp}}/terraform/
+              run: terraform init
+            
+            - name: Terraform Plan
+              working-directory: ${{runner.temp}}/terraform/
+              run: terraform plan
+
+            - name: Terraform Apply
+              working-directory:  ${{runner.temp}}/terraform/
+              run: terraform apply -auto-approve       
+
+              
