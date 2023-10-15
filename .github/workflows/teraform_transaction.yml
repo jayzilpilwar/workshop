@@ -2,7 +2,7 @@ name: 'terraform transaction deployment'
 on: 
     push:
         branches:
-            - main
+            - test01
         paths:
             - 'terraform/main.tf'
             - 'transactions/*'
