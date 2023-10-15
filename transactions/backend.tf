@@ -1,6 +1,6 @@
 terraform {
     backend "gcs" {
-        bucket = "workshop_tfstate"
-        prefix = "teraform/state/transactions"
+        bucket = "gitaction-secrets-statefile"
+        prefix = "terraform/state/transactions"
     }
 }
