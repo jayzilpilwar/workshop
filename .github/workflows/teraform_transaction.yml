@@ -1,4 +1,4 @@
-name: 'terraform transaction deployment'
+name: 'Terraform Transactions Deployment'
 on: 
     push:
         branches:
