@@ -13,6 +13,7 @@ resource "google_bigquery_dataset" "raw" {
         env     = "default"
     }
 }
+
 resource "google_bigquery_routine" "routine" {
     dataset_id      = google_bigquery_dataset.raw.dataset_id
     routine_id      = "${var.routine_id}"
