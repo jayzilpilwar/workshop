@@ -35,6 +35,7 @@ jobs:
 
             - name: Check Contents
               run: cd ${{runner.temp}}/terraform ; ls
+            
 
             - name: Auth 
               uses:  google-github-actions/auth@v0
