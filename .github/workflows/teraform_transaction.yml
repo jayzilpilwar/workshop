@@ -29,7 +29,7 @@ jobs:
             - name: Copy Terraform files
               run: |
                 cp terraform/main.tf ${{runner.temp}}/terraform/main.tf
-                cp -R transactions ${{runner.temp}}/terraform/
+                cp -R transactions/bigquery ${{runner.temp}}/terraform/
                 cp transactions/backend.tf ${{runner.temp}}/terraform/backend.tf
                 cp transactions/terraform.tfvars ${{runner.temp}}/terraform/terraform.tfvars
 
