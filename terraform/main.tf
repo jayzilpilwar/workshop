@@ -24,3 +24,5 @@ resource "google_bigquery_routine" "bigqyery-execution" {
 }
 
 
+
+
