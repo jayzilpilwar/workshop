@@ -8,6 +8,7 @@ on:
             - 'transactions/*'
             - 'transactions/backend.tf'
             - 'transactions/terraform.tfvars'
+            - '.github/workflows/terraform_transactions.yml'
 
 env:
     PROJECT_ID: dulcet-abacus-397714
@@ -34,7 +35,7 @@ jobs:
                 cp transactions/terraform.tfvars ${{runner.temp}}/terraform/terraform.tfvars
 
             - name: Check Contents
-              run: cd ${{runner.temp}}/terraform ; ls
+              run: cd ${{runner.temp}}/terraform/bigquery ; ls
             
             
             - name: Auth 
