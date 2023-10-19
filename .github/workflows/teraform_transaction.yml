@@ -36,8 +36,6 @@ jobs:
             - name: Check Contents
               run: cd ${{runner.temp}}/terraform ; ls
             
-            - name: Check Contents inside transactions
-              run: cd ${{runner.temp}}/terraform/transactions ; ls
             
             - name: Auth 
               uses:  google-github-actions/auth@v1
