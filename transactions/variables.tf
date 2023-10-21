@@ -54,3 +54,9 @@ variable "backend_config" {
   type    = string
   default = "cfjay"
 }
+
+variable "service_account_email" {
+  type    = string
+  default = "dulcet-abacus-397714@appspot.gserviceaccount.com"
+}
+

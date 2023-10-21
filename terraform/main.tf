@@ -31,6 +31,8 @@ resource "google_cloudfunctions_function" "my_functions" {
   timeout             = 60  
   region              = "us-east4"
   trigger_http        = true
+  ervice_account_email = var.service_account_email
+
 
 }
 
@@ -40,4 +42,6 @@ resource "google_storage_bucket_object" "function_code" {
   bucket = var.backend_config
   source  = file("cloud_function/${var.cloud_functions[count.index].source_code}")
   depends_on = [google_cloudfunctions_function.my_functions]
+  uniform_bucket_level_access = true
+
 }

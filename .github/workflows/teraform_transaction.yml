@@ -14,11 +14,11 @@ on:
 
 env:
     PROJECT_ID: dulcet-abacus-397714
-    
+
 
 jobs:
     setup:
-        name: 'Setup Bigquery on GCP'
+        name: 'Setup Bigquery/Cloud-Function on GCP'
         permissions:
             contents: 'read'
             id-token: 'write'
