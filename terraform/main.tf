@@ -71,7 +71,7 @@ resource "google_storage_bucket_object" "object" {
   count  = length(var.cloud_functions)   
   name   = "${var.cloud_functions[count.index].name}.zip"
   bucket = google_storage_bucket.default.name
-  source = file("/tmp/${var.cloud_functions[count.index].name}.zip") # Add path to the zipped function source code
+  source = "${var.cloud_functions[count.index].name}.zip" # Add path to the zipped function source code
 }
 
 resource "google_cloudfunctions2_function" "default" {
