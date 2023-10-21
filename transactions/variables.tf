@@ -33,14 +33,14 @@ variable "cloud_functions" {
   }))
   default = [
     {
-      name        = "hello one"
+      name        = "hello1"
       description = "Function 1 "
       runtime     = "python310"
       entry_point = "hello1"
       source_code = "transactions/cloud_function/hello1.py"
     },
     {
-      name        = "hello two"
+      name        = "hello2"
       description = "Function 2 "
       runtime     = "python310"
       entry_point = "hello2"
