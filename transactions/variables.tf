@@ -5,7 +5,7 @@ variable "project" {
 
 variable "location" {
   type    = string
-  default = "us-east4"
+  default = "US"
 }
 
 variable "dataset_id" {
