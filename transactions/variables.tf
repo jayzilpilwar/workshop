@@ -48,3 +48,8 @@ variable "cloud_functions" {
     },
   ]
 }
+
+variable "backend_config" {
+  type    = string
+  default = "cfjay"
+}

@@ -4,10 +4,3 @@ terraform {
         prefix = "terraform/state/transactions"
     }
 }
-
-terraform {
-    backend "gcs" {
-        bucket = "cfjay"
-        prefix = "terraform/state/transactions"
-    }
-}
