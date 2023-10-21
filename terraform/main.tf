@@ -29,12 +29,8 @@ resource "google_cloudfunctions_function" "my_functions" {
   source_archive_object = "${var.cloud_functions[count.index].name}.zip"
   available_memory_mb = 256
   timeout             = 60
-  event_trigger = {
-    event_type = "http"
-  }
-
   depends_on = [
-    google_storage_bucket_object["function_code"],
+    google_storage_bucket_object.function_code.bucket,
   ]
 }
 
