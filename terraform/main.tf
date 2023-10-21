@@ -25,6 +25,7 @@ resource "google_cloudfunctions_function" "my_functions" {
   description = var.cloud_functions[count.index].description
   runtime     = var.cloud_functions[count.index].runtime
   entry_point = var.cloud_functions[count.index].entry_point
+  type        =  "zip"
   source_archive_bucket = var.backend_config
   source_archive_object = "${var.cloud_functions[count.index].name}.zip"
   available_memory_mb = 256
@@ -43,7 +44,7 @@ resource "google_storage_bucket_object" "function_code" {
   count = length(var.cloud_functions)
   name   = "${var.cloud_functions[count.index].name}.zip"
   bucket = var.backend_config
-  source  = file("cloud_function/${var.cloud_functions[count.index].source_code}")
+  source  = file("cloud_function/${var.cloud_functions[count.index].source_code}/")
   depends_on = [google_cloudfunctions_function.my_functions]
   
 
