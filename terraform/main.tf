@@ -27,11 +27,9 @@ resource "google_cloudfunctions_function" "my_functions" {
   entry_point = var.cloud_functions[count.index].entry_point
   source_archive_bucket = var.backend_config
   source_archive_object = "${var.cloud_functions[count.index].name}.zip"
-
   available_memory_mb = 256
-  timeout             = "60s"
-
-  event_trigger {
+  timeout             = 60
+  event_trigger = {
     event_type = "http"
   }
 
