@@ -42,8 +42,11 @@ jobs:
             - name: Check Contents for BQ
               run: cd ${{runner.temp}}/terraform/bigquery ; ls
 
-            - name: Check Contents for CF
-              run: cd ${{runner.temp}}/terraform/cloud_function ; ls  
+            - name: Check Contents for CF1
+              run: cd ${{runner.temp}}/terraform/cloud_function/hello1 ; ls 
+             
+            - name: Check Contents for CF2
+              run: cd ${{runner.temp}}/terraform/cloud_function/hello2 ; ls   
             
             - name: Auth 
               uses:  google-github-actions/auth@v1

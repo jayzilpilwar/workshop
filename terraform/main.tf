@@ -41,7 +41,7 @@ resource "google_storage_bucket_object" "function_code" {
   count = length(var.cloud_functions)
   name   = "${var.cloud_functions[count.index].name}.zip"
   bucket = var.backend_config
-  source  = "cloud_function/${var.cloud_functions[count.index].source_code}/"
+  source  = "cloud_function/${var.cloud_functions[count.index].source_code}/*"
   depends_on = [google_cloudfunctions_function.my_functions]
 
 }
