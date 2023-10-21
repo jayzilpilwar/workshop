@@ -14,11 +14,12 @@ resource "google_bigquery_dataset" "raw" {
     }
 }
 resource "google_bigquery_routine" "bigqyery-execution" {
+    count           = length(var.routine_sql)    
     dataset_id      = google_bigquery_dataset.raw.dataset_id
-    routine_id      = "${var.routine_id}"
+    routine_id      = "routine_${var.routine_sql[count.index]}"
     routine_type    = "PROCEDURE"
     language        = "SQL"
-    definition_body = file("bigquery/${var.routine_sql}.sql")
+    definition_body = file("bigquery/${element(var.routine_sql,count.index)}")
     depends_on      = [ google_bigquery_dataset.raw ]
 }
 
