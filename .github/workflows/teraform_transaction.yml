@@ -33,7 +33,7 @@ jobs:
                 cp -R transactions/bigquery ${{runner.temp}}/terraform/
                 cp transactions/backend.tf ${{runner.temp}}/terraform/backend.tf
                 cp transactions/terraform.tfvars ${{runner.temp}}/terraform/terraform.tfvars
-                cp transactions/variables..tf ${{runner.temp}}/terraform/variables.tf
+                cp transactions/variables.tf ${{runner.temp}}/terraform/variables.tf
 
             - name: Check Contents
               run: cd ${{runner.temp}}/terraform/bigquery ; ls
