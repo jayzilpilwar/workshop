@@ -1,8 +1,3 @@
-variable "project" {}
-variable "location" {}
-variable "dataset_id" {}
-variable "routine_id" {}
-variable "routine_sql" {}
 
 resource "google_bigquery_dataset" "raw" {
     dataset_id      =   "${var.dataset_id}"
