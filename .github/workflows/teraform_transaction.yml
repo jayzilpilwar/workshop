@@ -8,6 +8,7 @@ on:
             - 'transactions/*'
             - 'transactions/backend.tf'
             - 'transactions/terraform.tfvars'
+            - 'transactions/variables.tf'
             - '.github/workflows/terraform_transactions.yml'
 
 env:
@@ -34,7 +35,7 @@ jobs:
                 cp transactions/backend.tf ${{runner.temp}}/terraform/backend.tf
                 cp transactions/terraform.tfvars ${{runner.temp}}/terraform/terraform.tfvars
                 cp transactions/variables.tf ${{runner.temp}}/terraform/variables.tf
-                
+
             - name: Check Contents
               run: cd ${{runner.temp}}/terraform/bigquery ; ls
             
