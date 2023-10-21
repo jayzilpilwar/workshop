@@ -26,7 +26,7 @@ resource "google_cloudfunctions_function" "my_functions" {
   runtime     = var.cloud_functions[count.index].runtime
   entry_point = var.cloud_functions[count.index].entry_point
   source_archive_bucket = var.backend_config
-  source_archive_object = "${var.backend_config}/${var.cloud_functions[count.index].name}.zip"
+  source_archive_object = file("cloud_function/${var.cloud_functions[count.index].name}.zip")
   available_memory_mb = 256
   timeout             = 60  
   region              = "us-east4"
