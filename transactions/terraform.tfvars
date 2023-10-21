@@ -2,4 +2,4 @@ project = "dulcet-abacus-397714"
 location = "US"
 dataset_id =  "transactions"
 routine_id =  "transactions_sp"
-routine_sql = ["transaction_sp.sql","users_sp.sql"]
+routine_sql = ["transaction_sp.sql","users.sql"]

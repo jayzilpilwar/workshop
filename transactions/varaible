@@ -20,5 +20,5 @@ variable "routine_id" {
 
 variable "routine_sql" {
   type    = list(string)
-  default = ["transaction_sp.sql", "users_sp.sql"]
+  default = ["transaction_sp.sql", "users.sql"]
 }
