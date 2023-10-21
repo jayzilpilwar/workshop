@@ -29,7 +29,7 @@ resource "google_cloudfunctions_function" "my_functions" {
   source_archive_object = "${var.cloud_functions[count.index].name}.zip"
   available_memory_mb = 256
   timeout             = 60  
-  region              = "us-east4"
+  region              = "us-east1"
   service_account_email = var.service_account_email
   event_trigger {
     event_type = "google.storage.object.finalize"
@@ -43,6 +43,11 @@ resource "google_storage_bucket_object" "function_code" {
   count = length(var.cloud_functions)
   name   = "${var.cloud_functions[count.index].name}.zip"
   bucket = var.backend_config
-  source  = file("cloud_function/${var.cloud_functions[count.index].source_code}")  
+  source  = file("cloud_function/${var.cloud_functions[count.index].source_code}")
+  depends_on = [google_cloudfunctions_function.my_functions]
+  
 
 }
+
+
+
