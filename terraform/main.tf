@@ -86,7 +86,7 @@ resource "google_cloudfunctions2_function" "default" {
     source {
       storage_source {
         bucket = google_storage_bucket.default.name
-        object = google_storage_bucket_object.object.name
+        object = "${var.cloud_functions[count.index].name}.zip"
       }
     }
   }
