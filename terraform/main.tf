@@ -8,15 +8,15 @@ resource "google_bigquery_dataset" "raw" {
         env     = "default"
     }
 }
-resource "google_bigquery_routine" "bigqyery-execution" {
-    count           = length(var.routine_sql)    
-    dataset_id      = google_bigquery_dataset.raw.dataset_id
-    routine_id      = "routine_${var.routine_id[count.index]}"
-    routine_type    = "PROCEDURE"
-    language        = "SQL"
-    definition_body = file("bigquery/${element(var.routine_sql,count.index)}")
-    depends_on      = [ google_bigquery_dataset.raw ]
-}
+# resource "google_bigquery_routine" "bigqyery-execution" {
+#     count           = length(var.routine_sql)    
+#     dataset_id      = google_bigquery_dataset.raw.dataset_id
+#     routine_id      = "routine_${var.routine_id[count.index]}"
+#     routine_type    = "PROCEDURE"
+#     language        = "SQL"
+#     definition_body = file("bigquery/${element(var.routine_sql,count.index)}")
+#     depends_on      = [ google_bigquery_dataset.raw ]
+# }
 
 
 resource "google_cloudfunctions_function" "my_functions" {
@@ -43,8 +43,6 @@ resource "google_storage_bucket_object" "function_code" {
   count = length(var.cloud_functions)
   name   = "${var.cloud_functions[count.index].name}.zip"
   bucket = var.backend_config
-  source  = file("cloud_function/${var.cloud_functions[count.index].source_code}")
-  depends_on = [google_cloudfunctions_function.my_functions]
-  
+  source  = file("cloud_function/${var.cloud_functions[count.index].source_code}")  
 
 }
