@@ -11,12 +11,13 @@ on:
             - 'transactions/variables.tf'
             - '.github/workflows/terraform_transactions.yml'
 
+
 env:
     PROJECT_ID: dulcet-abacus-397714
 
 jobs:
     setup:
-        name: 'Setup terraform on GCP'
+        name: 'Setup Bigquery on GCP'
         permissions:
             contents: 'read'
             id-token: 'write'
@@ -41,7 +42,7 @@ jobs:
               run: cd ${{runner.temp}}/terraform/bigquery ; ls
 
             - name: Check Contents for CF
-              run: cd ${{runner.temp}}/terraform/cloud_function ; ls
+              run: cd ${{runner.temp}}/terraform/cloud_function ; ls  
             
             - name: Auth 
               uses:  google-github-actions/auth@v1
