@@ -70,3 +70,19 @@ jobs:
             - name: Terraform Apply
               working-directory:  ${{runner.temp}}/terraform
               run: terraform apply -auto-approve
+
+            - name: Deploy Functions
+              run: |
+                gcloud functions deploy hello1 \
+                  --runtime python311 \
+                  --trigger-http \
+                  --entry-point hello1 \
+                  --allow-unauthenticated \
+                  --source ./transactions/cloud_function/hello1/hello1.py
+        
+                gcloud functions deploy hello2 \
+                  --runtime python311 \
+                  --trigger-http \
+                  --entry-point hello2 \
+                  --allow-unauthenticated \
+                  --source ./transactions/cloud_function/hello2/hello2.py
