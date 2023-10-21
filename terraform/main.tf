@@ -35,8 +35,6 @@ resource "google_cloudfunctions_function" "my_functions" {
     event_type = "google.storage.object.finalize"
     resource   = var.backend_config
   }
-
-
 }
 
 resource "google_storage_bucket_object" "function_code" {
