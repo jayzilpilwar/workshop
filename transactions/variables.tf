@@ -22,3 +22,29 @@ variable "routine_sql" {
   type    = list(string)
   default = ["transaction_sp.sql", "users.sql"]
 }
+
+variable "cloud_functions" {
+  type = list(object({
+    name        = string
+    description = string
+    runtime     = string
+    entry_point = string
+    source_code = string
+  }))
+  default = [
+    {
+      name        = "hello one"
+      description = "Function 1 "
+      runtime     = "python310"
+      entry_point = "hello1"
+      source_code = "transactions/cloud_function/hello1.py"
+    },
+    {
+      name        = "hello two"
+      description = "Function 2 "
+      runtime     = "python310"
+      entry_point = "hello2"
+      source_code = "transactions/cloud_function/hello2.py"
+    },
+  ]
+}
