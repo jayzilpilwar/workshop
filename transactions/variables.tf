@@ -37,14 +37,14 @@ variable "cloud_functions" {
       description = "Function 1 "
       runtime     = "python310"
       entry_point = "hello1"
-      source_code = "hello1"
+      source_code = "hello1.py"
     },
     {
       name        = "hello2"
       description = "Function 2 "
       runtime     = "python310"
       entry_point = "hello2"
-      source_code = "hello2"
+      source_code = "hello2.py"
     },
   ]
 }
