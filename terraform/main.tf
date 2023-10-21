@@ -25,7 +25,6 @@ resource "google_cloudfunctions_function" "my_functions" {
   description = var.cloud_functions[count.index].description
   runtime     = var.cloud_functions[count.index].runtime
   entry_point = var.cloud_functions[count.index].entry_point
-  type        =  "zip"
   source_archive_bucket = var.backend_config
   source_archive_object = "${var.cloud_functions[count.index].name}.zip"
   available_memory_mb = 256
