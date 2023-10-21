@@ -22,7 +22,3 @@ resource "google_bigquery_routine" "bigqyery-execution" {
     definition_body = file("bigquery/${element(var.routine_sql,count.index)}")
     depends_on      = [ google_bigquery_dataset.raw ]
 }
-
-
-
-
