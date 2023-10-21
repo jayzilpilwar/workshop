@@ -30,16 +30,14 @@ resource "google_cloudfunctions_function" "my_functions" {
   available_memory_mb = 256
   timeout             = 60
   depends_on = [
-    google_storage_bucket_object.function_code.bucket,
+    google_storage_bucket_object.function_code.bucket
   ]
 }
 
 resource "google_storage_bucket_object" "function_code" {
   count = length(var.cloud_functions)
-
   name   = "${var.cloud_functions[count.index].name}.zip"
   bucket = var.backend_config
   source = var.cloud_functions[count.index].source_code
-
   depends_on = [google_cloudfunctions_function.my_functions]
 }
