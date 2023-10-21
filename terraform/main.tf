@@ -30,7 +30,6 @@ resource "google_cloudfunctions_function" "my_functions" {
   available_memory_mb = 256
   timeout             = 60  
   region              = "us-east4"
-  trigger_http        = true
   service_account_email = var.service_account_email
 
 

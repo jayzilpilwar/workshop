@@ -1,2 +1,2 @@
 def hello1(request):
-    return 'Hello, One!'
+    print("Hello, One!")
