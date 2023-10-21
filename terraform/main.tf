@@ -64,7 +64,7 @@ resource "google_storage_bucket" "default" {
 data "archive_file" "default" {
   count       = length(var.cloud_functions)  
   type        = "zip"
-  output_path = file("/tmp/${var.cloud_functions[count.index].name}.zip")
+  output_path = file("${var.cloud_functions[count.index].name}.zip")
   source_dir  = "cloud_function/${var.cloud_functions[count.index].name}/"
 }
 resource "google_storage_bucket_object" "object" {
