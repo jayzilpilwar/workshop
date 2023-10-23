@@ -60,6 +60,6 @@ variable "backend_config" {
 
 variable "service_account_email" {
   type    = string
-  default = "dulcet-abacus-397714@appspot.gserviceaccount.com"
+  default = "gitactions-service@dulcet-abacus-397714.iam.gserviceaccount.com"
 }
 
