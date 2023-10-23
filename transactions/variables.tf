@@ -38,7 +38,7 @@ variable "cloud_functions" {
       description = "Function 1 "
       runtime     = "python310"
       entry_point = "hello1"
-      source_code = "cloud_function/hello1/"
+      source_code = "cloud_function/"
       cf_name = "hello1"
     },
     {
@@ -46,7 +46,7 @@ variable "cloud_functions" {
       description = "Function 2 "
       runtime     = "python310"
       entry_point = "hello2"
-      source_code = "cloud_function/hello2/"
+      source_code = "cloud_function/"
       cf_name = "hello2"
     },
   ]
