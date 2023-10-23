@@ -62,7 +62,7 @@ resource "google_cloudfunctions_function" "function" {
   runtime                      = var.cloud_functions[count.index].runtime
   available_memory_mb          = 128
   source_archive_bucket        = var.backend_config
-  source_archive_object        = google_storage_bucket_object.archive.name
+  source_archive_object        = var.cloud_functions[count.index].name
   trigger_http                 = true
   https_trigger_security_level = "SECURE_ALWAYS"
   timeout                      = 60

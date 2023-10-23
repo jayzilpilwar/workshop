@@ -5,7 +5,7 @@ on:
             - main
         paths:
             - 'terraform/main.tf'
-            - 'transactions/*'
+            - 'transactions/bigquery/*'
             - 'transactions/backend.tf'
             - 'transactions/terraform.tfvars'
             - 'transactions/variables.tf'
@@ -37,7 +37,6 @@ jobs:
                 cp transactions/backend.tf ${{runner.temp}}/terraform/backend.tf
                 cp transactions/terraform.tfvars ${{runner.temp}}/terraform/terraform.tfvars
                 cp transactions/variables.tf ${{runner.temp}}/terraform/variables.tf
-                cp -R transactions/cloud_function ${{runner.temp}}/terraform/
 
             - name: Check Contents for BQ
               run: cd ${{runner.temp}}/terraform/bigquery ; ls
