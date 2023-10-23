@@ -43,7 +43,6 @@ resource "google_cloudfunctions_function" "function" {
   timeout                      = 60
   entry_point                  = var.cloud_functions[count.index].entry_point
   region                       = "us-east1"
-  GOOGLE_FUNCTION_SOURCE       = "main.py"
   
   }
 
