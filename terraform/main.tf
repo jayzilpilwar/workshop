@@ -44,7 +44,9 @@ resource "google_cloudfunctions_function" "function" {
   entry_point                  = var.cloud_functions[count.index].entry_point
   region                       = "us-east1"
   service_account_email        = var.service_account_email
+  event_trigger {
+    event_type = "google.storage.object.finalize"
+  } 
   
-  }
-
+}
 
