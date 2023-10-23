@@ -30,21 +30,24 @@ variable "cloud_functions" {
     runtime     = string
     entry_point = string
     source_code = string
+    cf_name = string
   }))
   default = [
     {
-      name        = "hello1"
+      name        = "hello1.zip"
       description = "Function 1 "
       runtime     = "python310"
       entry_point = "hello1"
-      source_code = "hello1.py"
+      source_code = "cloud_function/hello1/"
+      cf_name = "hello1"
     },
     {
-      name        = "hello2"
+      name        = "hello2.zip"
       description = "Function 2 "
       runtime     = "python310"
       entry_point = "hello2"
-      source_code = "hello2.py"
+      source_code = "cloud_function/hello2/"
+      cf_name = "hello2"
     },
   ]
 }

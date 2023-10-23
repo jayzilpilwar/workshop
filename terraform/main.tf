@@ -26,7 +26,7 @@ resource "google_bigquery_routine" "bigqyery-execution" {
 #   runtime     = var.cloud_functions[count.index].runtime
 #   entry_point = var.cloud_functions[count.index].entry_point
 #   source_archive_bucket = var.backend_config
-#   source_archive_object = "${var.cloud_functions[count.index].name}.zip"
+#   source_archive_object = var.cloud_functions[count.index].source_code
 #   available_memory_mb = 256
 #   timeout             = 60  
 #   region              = "us-east1"
@@ -46,5 +46,29 @@ resource "google_bigquery_routine" "bigqyery-execution" {
 
 # }
 
+
+resource "google_storage_bucket_object" "archive" {
+  count =  length(var.cloud_functions)  
+  name   = var.cloud_functions[count.index].name
+  bucket = var.backend_config
+  source = var.cloud_functions[count.index].source_code
+}
+
+
+resource "google_cloudfunctions_function" "function" {
+  count                        = length(var.cloud_functions)  
+  name                         = var.cloud_functions[count.index].cf_name
+  description                  = var.cloud_functions[count.index].description
+  runtime                      = var.cloud_functions[count.index].runtime
+  available_memory_mb          = 128
+  source_archive_bucket        = var.backend_config
+  source_archive_object        = google_storage_bucket_object.archive.name
+  trigger_http                 = true
+  https_trigger_security_level = "SECURE_ALWAYS"
+  timeout                      = 60
+  entry_point                  = var.cloud_functions[count.index].entry_point
+  region                       = "us-east1"
+  
+  }
 
 
