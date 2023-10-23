@@ -4,11 +4,11 @@ on:
         branches:
             - main
         paths:
-            - 'terraform/main.tf'
-            - 'transactions/*'
-            - 'transactions/backend.tf'
-            - 'transactions/terraform.tfvars'
-            - 'transactions/variables.tf'
+            #- 'terraform/main.tf'
+            #- 'transactions/*'
+            #- 'transactions/backend.tf'
+            #- 'transactions/terraform.tfvars'
+            #- 'transactions/variables.tf'
             - '.github/workflows/terraform_transactions.yml'
 
 
