@@ -5,7 +5,7 @@ on:
             - main
         paths:
             - 'terraform/main.tf'
-            - 'transactions/cloud_function/*'
+            - 'transactions/*'
             - 'transactions/backend.tf'
             - 'transactions/terraform.tfvars'
             - 'transactions/variables.tf'

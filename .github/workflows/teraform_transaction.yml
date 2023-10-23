@@ -5,7 +5,7 @@ on:
             - main
         paths:
             - 'terraform/main.tf'
-            - 'transactions/bigquery/*'
+            - 'transactions/*'
             - 'transactions/backend.tf'
             - 'transactions/terraform.tfvars'
             - 'transactions/variables.tf'
