@@ -1,4 +1,4 @@
-name: 'Terraform Transactions Deployment'
+name: 'Terraform BigQuery Deployment'
 on: 
     push:
         branches:

@@ -1,4 +1,4 @@
-name: 'Terraform Transactions Deployment'
+name: 'Terraform Cloud Function Deployment'
 on: 
     push:
         branches:
