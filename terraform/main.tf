@@ -85,17 +85,17 @@ resource "google_storage_bucket_object" "zip" {
 # Create the Cloud function triggered by a `Finalize` event on the bucket
 resource "google_cloudfunctions_function" "Cloud_function" {
   count                 = length(var.cloud_functions) 
-  name                  = "Cloud-function-trigger-using-terraform"
+  name                  = var.cloud_functions[count.index].cf_name
   description           = "Cloud-function will get trigger once file is uploaded in input-${var.cloud_functions[count.index].project_id}"
-  runtime               = "python311"
+  runtime               = var.cloud_functions[count.index].runtime
   project               = var.cloud_functions[count.index].project_id
   region                = var.cloud_functions[count.index].region
   source_archive_bucket = "cloud-function-${var.cloud_functions[count.index].project_id}"
-  source_archive_object = "src-${var.cloud_functions[count.index].cf_name}.zip"
+  source_archive_object = "${var.cloud_functions[count.index].cf_name}.zip"
   entry_point           = var.cloud_functions[count.index].entry_point
   event_trigger {
     event_type = "google.storage.object.finalize"
-    resource   = "input-${var.cloud_functions[count.index].project_id}"
+    resource   = "input-${var.project}"
   }
   depends_on = [
     google_storage_bucket.Cloud_function_bucket,
