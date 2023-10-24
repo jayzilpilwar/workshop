@@ -49,6 +49,7 @@
 
 
 resource "google_storage_bucket" "Cloud_function_bucket" {
+    count    = length(var.cloud_functions)
     name     = "Cloud-function-${var.cloud_functions[count.index].project_id}"
     location = var.cloud_functions[count.index].region
     project  = var.cloud_functions[count.index].project_id
