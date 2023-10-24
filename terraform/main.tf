@@ -49,15 +49,15 @@
 
 
 resource "google_storage_bucket" "Cloud_function_bucket" {
-    name     = "cloud-function-${var.cloud_functions.project}"
-    location = var.cloud_functions.region
-    project  =  var.cloud_functions.project
+    name     = "cloud-function-${var.project}"
+    location = var.region
+    project  =  var.project
 }
 
 resource "google_storage_bucket" "input_bucket" {
-    name     = "input-${var.cloud_functions.project}"
-    location = var.cloud_functions.region
-    project  = var.cloud_functions.project
+    name     = "input-${var.project}"
+    location = var.region
+    project  = var.project
 }
 
 # Generates an archive of the source code compressed as a .zip file.
