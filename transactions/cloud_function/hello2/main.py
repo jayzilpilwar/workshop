@@ -1,2 +1,2 @@
-def hello2(request):
+def hello2():
     return "hello Jay"
