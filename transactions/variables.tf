@@ -59,6 +59,16 @@ variable "cloud_functions" {
       region = "us-east1"
       project_id = "dulcet-abacus-397714"
     },
+    {
+      name        = "hello3.zip"
+      description = "Function 2 "
+      runtime     = "python310"
+      entry_point = "hello3"
+      source_code = "cloud_function/hello3"
+      cf_name = "hello2"
+      region = "us-east1"
+      project_id = "dulcet-abacus-397714"
+    }
   ]
 }
 
