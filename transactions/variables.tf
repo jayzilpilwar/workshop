@@ -43,7 +43,7 @@ variable "cloud_functions" {
       source_code = "cloud_function/hello1"
       cf_name = "hello1"
       region = "us-east1"
-      project_id = "dulcet-abacus-397714"
+      project_id = "dulcet-abacus"
     },
     {
       name        = "hello2.zip"
@@ -53,7 +53,7 @@ variable "cloud_functions" {
       source_code = "cloud_function/hello2"
       cf_name = "hello2"
       region = "us-east1"
-      project_id = "dulcet-abacus-397714"
+      project_id = "dulcet-abacus"
     },
   ]
 }
