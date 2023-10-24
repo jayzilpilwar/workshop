@@ -73,7 +73,7 @@ resource "google_storage_bucket_object" "zip" {
   count        = length(var.cloud_functions)  
   source       = "cloud_function/${var.cloud_functions[count.index].cf_name}.zip"
   content_type = "application/zip"
-  name         = "src-${var.cloud_functions[count.index].cf_name}.zip"
+  name         = "${var.cloud_functions[count.index].cf_name}.zip"
   bucket       = "cloud-function-${var.cloud_functions[count.index].project_id}"
   depends_on = [
     google_storage_bucket.Cloud_function_bucket,
