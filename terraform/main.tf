@@ -20,7 +20,6 @@
 
 
 
-
 resource "google_storage_bucket" "Cloud_function_bucket" {
     name     = "cloud-function-${var.project}"
     location = var.region
