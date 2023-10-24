@@ -50,7 +50,7 @@
 
 resource "google_storage_bucket" "Cloud_function_bucket" {
     count    = length(var.cloud_functions)
-    name     = "Cloud-function-${var.cloud_functions[count.index].project_id}"
+    name     = "cloud-function-${var.cloud_functions[count.index].project_id}"
     location = var.cloud_functions[count.index].region
     project  = var.cloud_functions[count.index].project_id
 }
@@ -76,7 +76,7 @@ resource "google_storage_bucket_object" "zip" {
   source       = "cloud_function/${var.cloud_functions[count.index].cf_name}.zip"
   content_type = "application/zip"
   name         = "src-${var.cloud_functions[count.index].cf_name}.zip"
-  bucket       = "Cloud-function-${var.cloud_functions[count.index].project_id}"
+  bucket       = "cloud-function-${var.cloud_functions[count.index].project_id}"
   depends_on = [
     google_storage_bucket.Cloud_function_bucket,
     data.archive_file.source
@@ -92,7 +92,7 @@ resource "google_cloudfunctions_function" "Cloud_function" {
   runtime               = "python311"
   project               = var.cloud_functions[count.index].project_id
   region                = var.cloud_functions[count.index].region
-  source_archive_bucket = "Cloud-function-${var.cloud_functions[count.index].project_id}"
+  source_archive_bucket = "cloud-function-${var.cloud_functions[count.index].project_id}"
   source_archive_object = "src-${var.cloud_functions[count.index].cf_name}.zip"
   entry_point           = var.cloud_functions[count.index].entry_point
   event_trigger {
