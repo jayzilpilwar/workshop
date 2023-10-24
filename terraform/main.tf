@@ -49,17 +49,15 @@
 
 
 resource "google_storage_bucket" "Cloud_function_bucket" {
-    count    = length(var.cloud_functions)
-    name     = "cloud-function-${var.cloud_functions[count.index].project_id}"
-    location = var.cloud_functions[count.index].region
-    project  = var.cloud_functions[count.index].project_id
+    name     = "cloud-function-${var.cloud_functions.project}"
+    location = var.cloud_functions.region
+    project  =  var.cloud_functions.project
 }
 
 resource "google_storage_bucket" "input_bucket" {
-    count    = length(var.cloud_functions)
-    name     = "input-${var.cloud_functions[count.index].project_id}"
-    location = var.cloud_functions[count.index].region
-    project  = var.cloud_functions[count.index].project_id
+    name     = "input-${var.cloud_functions.project}"
+    location = var.cloud_functions.region
+    project  = var.cloud_functions.project
 }
 
 # Generates an archive of the source code compressed as a .zip file.

@@ -12,6 +12,10 @@ variable "dataset_id" {
   type    = string
   default = "transactions"
 }
+variable "region" {
+  type    = string
+  default = "us-east1"
+}
 
 variable "routine_id" {
   type    = list(string)
