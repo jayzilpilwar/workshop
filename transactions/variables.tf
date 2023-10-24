@@ -31,6 +31,8 @@ variable "cloud_functions" {
     entry_point = string
     source_code = string
     cf_name = string
+    region = string
+    project_id = string
   }))
   default = [
     {
@@ -38,16 +40,20 @@ variable "cloud_functions" {
       description = "Function 1 "
       runtime     = "python310"
       entry_point = "hello1"
-      source_code = "cloud_function/hello1.zip"
+      source_code = "cloud_function/hello1"
       cf_name = "hello1"
+      region = "us-east1"
+      project_id = "dulcet-abacus-397714"
     },
     {
       name        = "hello2.zip"
       description = "Function 2 "
       runtime     = "python310"
       entry_point = "hello2"
-      source_code = "cloud_function/hello2.zip"
+      source_code = "cloud_function/hello2"
       cf_name = "hello2"
+      region = "us-east1"
+      project_id = "dulcet-abacus-397714"
     },
   ]
 }
