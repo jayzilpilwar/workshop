@@ -65,7 +65,7 @@ variable "cloud_functions" {
       runtime     = "python310"
       entry_point = "hello3"
       source_code = "cloud_function/hello3"
-      cf_name = "hello2"
+      cf_name = "hello3"
       region = "us-east1"
       project_id = "dulcet-abacus-397714"
     }
